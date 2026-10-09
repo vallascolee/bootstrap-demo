@@ -1,29 +1,14 @@
-<%@page contentType="text/html" pageEncoding="UTF-8"%> 
-<!DOCTYPE html> 
-<html> 
-<head> 
-<meta http-equiv="Content-Type" content="text/html; 
-charset=UTF-8"> 
-<title>Registro Productos</title> 
-<link 
-href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.
-min.css" rel="stylesheet"> 
-</head> 
-<body> 
-<div class="container mt-5"> 
-<h2>Registrar Producto</h2> 
-<form action="producto" method="post"> 
-<label>Nombre</label> 
-<input type="text" name="nombre" class="form-control"> 
-<br> 
-<label>Precio</label> 
-<input type="number" step="0.01" name="precio" 
-class="form-control"> 
-<br> 
-<button class="btn btn-success"> 
-Guardar 
-</button> 
-</form> 
-</div> 
-</body> 
-</html> 
+<form action="producto" method="post" onsubmit="return validarProducto();"> 
+    <!-- ESTA LÍNEA ES OBLIGATORIA PARA EL SERVLET -->
+    <input type="hidden" name="accion" value="guardar"> 
+
+    <label>Nombre</label> 
+    <input type="text" name="nombre" class="form-control" id="nombre"> 
+    <br> 
+    <label>Precio</label> 
+    <input type="number" step="0.01" name="precio" class="form-control" id="precio"> 
+    <br> 
+    <button type="submit" class="btn btn-success">Guardar</button>
+    <!-- Botón para ir a ver la tabla -->
+    <a href="producto?accion=listar" class="btn btn-primary">Ver Productos</a>
+</form>
